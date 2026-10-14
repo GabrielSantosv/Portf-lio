@@ -1,11 +1,13 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useLanguage } from "../../context/LanguageContext";
 
 type CursorState = "default" | "interactive" | "ver";
 
 export default function Cursor() {
   const [enabled, setEnabled] = useState(false);
   const [state, setState] = useState<CursorState>("default");
+  const { lang } = useLanguage();
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
   const springX = useSpring(x, { stiffness: 500, damping: 40 });
@@ -55,7 +57,7 @@ export default function Cursor() {
       transition={{ width: { duration: 0.2 }, height: { duration: 0.2 } }}
     >
       {state === "ver" && (
-        <span className="font-mono text-[11px] font-medium uppercase tracking-widest text-black">Ver</span>
+        <span className="font-mono text-[11px] font-medium uppercase tracking-widest text-black">{lang === "pt" ? "Ver" : "View"}</span>
       )}
     </motion.div>
   );

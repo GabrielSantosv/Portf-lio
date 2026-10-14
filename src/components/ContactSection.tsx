@@ -3,6 +3,7 @@ import { ArrowUpRight, Check, Copy, Mail } from "lucide-react";
 import { GithubIcon, InstagramIcon, LinkedinIcon } from "./common/BrandIcons";
 import Reveal from "./motion/Reveal";
 import MaskReveal from "./motion/MaskReveal";
+import { useLanguage } from "../context/LanguageContext";
 
 const EMAIL = "gabrielsantosdevti@gmail.com";
 
@@ -30,6 +31,7 @@ function useClock() {
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
   const time = useClock();
+  const { t } = useLanguage();
 
   function handleCopy() {
     navigator.clipboard?.writeText(EMAIL).then(() => {
@@ -43,7 +45,7 @@ export default function ContactSection() {
       <div className="mx-auto max-w-5xl">
         <MaskReveal
           as="h2"
-          lines={["Oportunidades &", "Conexões."]}
+          lines={[t("contact.headline1"), t("contact.headline2")]}
           className="hero-heading font-display font-black leading-[0.95] tracking-[-0.04em]"
           lineClassName="text-[clamp(2.5rem,9vw,7rem)]"
         />
@@ -56,12 +58,12 @@ export default function ContactSection() {
                 className="flex min-w-0 flex-1 items-center gap-4 sm:gap-6"
               >
                 <span className="w-20 shrink-0 font-mono text-[10px] uppercase tracking-widest text-[#8A8A85] sm:w-28 sm:text-[11px]">
-                  E-mail
+                  {t("contact.email")}
                 </span>
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F5F5F2] text-black sm:h-14 sm:w-14">
                   <Mail size={22} />
                 </span>
-                <span className="truncate font-display text-lg font-bold text-white transition-colors duration-200 group-hover:text-[#D4D4D0] sm:text-2xl">
+                <span className="truncate font-display text-lg font-bold text-[#F5F5F2] transition-colors duration-200 group-hover:text-[#D4D4D0] sm:text-2xl">
                   {EMAIL}
                 </span>
               </a>
@@ -75,7 +77,7 @@ export default function ContactSection() {
               </button>
               <ArrowUpRight
                 size={20}
-                className="shrink-0 text-[#8A8A85] transition-colors duration-200 group-hover:text-white"
+                className="shrink-0 text-[#8A8A85] transition-colors duration-200 group-hover:text-[#F5F5F2]"
               />
             </div>
 
@@ -86,17 +88,17 @@ export default function ContactSection() {
               className="group flex items-center gap-4 border-b border-white/10 py-6 transition-colors duration-200 hover:border-white/25 sm:gap-6"
             >
               <span className="w-20 shrink-0 font-mono text-[10px] uppercase tracking-widest text-[#8A8A85] sm:w-28 sm:text-[11px]">
-                LinkedIn
+                {t("contact.linkedin")}
               </span>
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F5F5F2] text-black sm:h-14 sm:w-14">
                 <LinkedinIcon size={22} />
               </span>
-              <span className="truncate font-display text-lg font-bold text-white transition-colors duration-200 group-hover:text-[#D4D4D0] sm:text-2xl">
+              <span className="truncate font-display text-lg font-bold text-[#F5F5F2] transition-colors duration-200 group-hover:text-[#D4D4D0] sm:text-2xl">
                 in/gabrielsantosv
               </span>
               <ArrowUpRight
                 size={20}
-                className="ml-auto shrink-0 text-[#8A8A85] transition-colors duration-200 group-hover:text-white"
+                className="ml-auto shrink-0 text-[#8A8A85] transition-colors duration-200 group-hover:text-[#F5F5F2]"
               />
             </a>
 
@@ -107,17 +109,17 @@ export default function ContactSection() {
               className="group flex items-center gap-4 border-b border-white/10 py-6 transition-colors duration-200 hover:border-white/25 sm:gap-6"
             >
               <span className="w-20 shrink-0 font-mono text-[10px] uppercase tracking-widest text-[#8A8A85] sm:w-28 sm:text-[11px]">
-                GitHub
+                {t("contact.github")}
               </span>
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F5F5F2] text-black sm:h-14 sm:w-14">
                 <GithubIcon size={22} />
               </span>
-              <span className="truncate font-display text-lg font-bold text-white transition-colors duration-200 group-hover:text-[#D4D4D0] sm:text-2xl">
+              <span className="truncate font-display text-lg font-bold text-[#F5F5F2] transition-colors duration-200 group-hover:text-[#D4D4D0] sm:text-2xl">
                 GabrielSantosv
               </span>
               <ArrowUpRight
                 size={20}
-                className="ml-auto shrink-0 text-[#8A8A85] transition-colors duration-200 group-hover:text-white"
+                className="ml-auto shrink-0 text-[#8A8A85] transition-colors duration-200 group-hover:text-[#F5F5F2]"
               />
             </a>
 
@@ -128,17 +130,17 @@ export default function ContactSection() {
               className="group flex items-center gap-4 border-b border-white/10 py-6 transition-colors duration-200 hover:border-white/25 sm:gap-6"
             >
               <span className="w-20 shrink-0 font-mono text-[10px] uppercase tracking-widest text-[#8A8A85] sm:w-28 sm:text-[11px]">
-                Instagram
+                {t("contact.instagram")}
               </span>
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F5F5F2] text-black sm:h-14 sm:w-14">
                 <InstagramIcon size={22} />
               </span>
-              <span className="truncate font-display text-lg font-bold text-white transition-colors duration-200 group-hover:text-[#D4D4D0] sm:text-2xl">
+              <span className="truncate font-display text-lg font-bold text-[#F5F5F2] transition-colors duration-200 group-hover:text-[#D4D4D0] sm:text-2xl">
                 @gabrielsantoszv
               </span>
               <ArrowUpRight
                 size={20}
-                className="ml-auto shrink-0 text-[#8A8A85] transition-colors duration-200 group-hover:text-white"
+                className="ml-auto shrink-0 text-[#8A8A85] transition-colors duration-200 group-hover:text-[#F5F5F2]"
               />
             </a>
           </div>
@@ -147,9 +149,9 @@ export default function ContactSection() {
         <Reveal delay={0.3}>
           <div className="mt-24 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 font-mono text-[11px] uppercase tracking-widest text-[#3A3A38] sm:flex-row sm:items-center">
             <span>© {new Date().getFullYear()} Gabriel dos Santos</span>
-            <span>Limeira, SP — {time} GMT-3</span>
+            <span>{t("contact.location")} — {time} GMT-3</span>
             <a href="#top" className="inline-flex items-center gap-1 transition-colors duration-200 hover:text-[#8A8A85]">
-              Voltar ao topo
+              {t("contact.voltarTopo")}
               <ArrowUpRight size={14} />
             </a>
           </div>

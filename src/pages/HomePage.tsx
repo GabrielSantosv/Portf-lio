@@ -7,13 +7,15 @@ import ExperienceSection from "../components/ExperienceSection";
 import ProjectsSection from "../components/ProjectsSection";
 import ResumeSection from "../components/ResumeSection";
 import ContactSection from "../components/ContactSection";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function HomePage() {
   const location = useLocation();
+  const { t } = useLanguage();
 
   useEffect(() => {
-    document.title = "Gabriel dos Santos · Backend Developer";
-  }, []);
+    document.title = t("doc.home");
+  }, [t]);
 
   useEffect(() => {
     if (!location.hash) return;

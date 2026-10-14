@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function HeroSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="top" className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
       {/* Edge vignette */}
@@ -21,7 +24,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.15, ease: EASE }}
           className="hero-title-metal whitespace-nowrap font-display text-[9vw] font-black uppercase leading-none tracking-tight sm:text-[9.5vw] lg:text-[10vw]"
         >
-          Oi, sou o Gabriel
+          {t("hero.greeting")}
         </motion.h1>
       </div>
     </section>

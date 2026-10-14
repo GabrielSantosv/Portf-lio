@@ -98,7 +98,7 @@ export default function ProjectShowcase({ slug, coverLabel, variant = "full", cl
       onMouseLeave={() => setPaused(false)}
     >
       <div
-        className="relative overflow-hidden rounded-[24px] border"
+        className="dark-card relative overflow-hidden rounded-[24px] border"
         style={{
           borderColor: "rgba(255,255,255,0.08)",
           backgroundImage:
@@ -162,8 +162,9 @@ export default function ProjectShowcase({ slug, coverLabel, variant = "full", cl
               key={screen.label}
               type="button"
               onClick={() => selectScreen(i)}
-              className="relative shrink-0 px-3 py-2 font-mono text-[10px] uppercase tracking-widest transition-colors duration-200"
-              style={{ color: i === active ? "#F5F5F2" : "#8A8A85" }}
+              className={`relative shrink-0 px-3 py-2 font-mono text-[10px] uppercase tracking-widest transition-colors duration-200 ${
+                i === active ? "text-[#F5F5F2]" : "text-[#8A8A85]"
+              }`}
             >
               {screen.label}
               <span className="absolute bottom-0 left-0 h-px w-full bg-white/10" />
