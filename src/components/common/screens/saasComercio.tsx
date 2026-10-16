@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import type { Screen } from "../ProjectShowcase";
-import { Panel, StatCard, Bar, GOLD } from "./_ui";
+import { Panel, StatCard, GOLD } from "./_ui";
 
 function DashboardScreen() {
   return (
